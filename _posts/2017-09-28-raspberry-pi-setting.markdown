@@ -15,3 +15,13 @@ categories: RaspberryPi Project Setting
 1. Download [Raspbian iso](https://www.raspberrypi.org/downloads/raspbian/) (recommend Raspbian Stretch with desktop not lite version)
 2. Write an image, specifically Raspbian, on MicroSD card ([HOW TO](https://www.raspberrypi.org/documentation/installation/installing-images/README.md))
 3. [More information](https://www.raspberrypi.org/help/)
+
+# Raspbian Keyboard Configuration
+1. Open console (shortcut: ctrl + alt + t)
+2. Input command, 
+```
+pi@raspberrypi:~ $ sudo raspi-config
+```
+3. Than, you can see "Raspberry Pi Software Configuration Tool" window
+4. Follow the options, Localisation Options > Change Keyboard Layout
+5. Change keyboard configuration what you want to set
