@@ -25,3 +25,15 @@ pi@raspberrypi:~ $ sudo raspi-config
 3. Than, you can see "Raspberry Pi Software Configuration Tool" window
 4. Follow the options, Localisation Options > Change Keyboard Layout
 5. Change keyboard configuration what you want to set
+
+# Language Problem Solving
+Broken font is the problem for using Korean.
+
+1. Inatll ibus, ibus-hangle, fonts-unfonts-core
+```
+$ sudo apt-get install ibus -y
+$ sudo apt-get install ibus-hangle -y
+$ sudo apt-get install fonts-unfonts-core -y
+```
+2. Change Localisation of Raspberry Pi Configuration (Set Locale..., and Set Timezone...) to Korean
+
