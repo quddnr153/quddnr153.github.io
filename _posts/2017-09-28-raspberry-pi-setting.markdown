@@ -36,4 +36,5 @@ $ sudo apt-get install ibus-hangle -y
 $ sudo apt-get install fonts-unfonts-core -y
 ```
 2. Change Localisation of Raspberry Pi Configuration (Set Locale..., and Set Timezone...) to Korean
-
+3. Rebute Raspbian
+4. Change the ibus configuration on the right top, "EN" button, to Taegeuk mark
