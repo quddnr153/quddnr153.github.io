@@ -2,7 +2,7 @@
 layout: post
 title:  "Raspberry Pi 3 setting - equipment"
 date:   2017-09-28 20:26:38 +0900
-categories: RaspberryPi Project Setting
+tags: RaspberryPi Project Setting
 ---
 # Precondition of developing Raspberry Pi 3
 1. [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)

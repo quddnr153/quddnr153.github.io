@@ -2,7 +2,7 @@
 layout: post
 title:  "Just A Rather Very Intelligent System"
 date:   2017-10-3 22:4:38 +0900
-categories: jarvis intelligent system ai
+tags: jarvis intelligent system ai
 ---
 # J.A.R.V.I.S
 * * *
@@ -23,7 +23,7 @@ JARVIS stands for 'Just A Rather Very Intelligent System'. As you know, JARVIS i
 문서 작성, 개발, 리서치 등 병행하여 수행할 예정으로 앞뒤가 안 맞을 가능성이 높으므로, 이점 고려하여 읽어주길 바란다.
 
 * * *
-## Input
+## 1. Input
 * * *
 자비스에게 명령을 내리기 위한 수단으로는 여러 방법이 있다, UI로 button을 조작, text를 입력, 등이 있지만, 여기서는 speech를 입력으로 사용할 것이다.
 
@@ -32,7 +32,7 @@ JARVIS stands for 'Just A Rather Very Intelligent System'. As you know, JARVIS i
 TODO: HOW TO record the speech to .wav file or others
 
 * * *
-## Speech To Text (STT)
+## 2. Speech To Text (STT)
 * * *
 Input으로 speech를 받았다면 (아마 여기에선 Waveform audio format - WAV를 사용함),
 
@@ -50,6 +50,22 @@ Noting is impossible??? 아니 여기 존재한다, 불가능이다
 
 이렇듯 음성인식 시스템을 구축?하려면 가난한 우리에겐 Open source API를 사용해야 한다.
 
+* [Google Speech API](https://cloud.google.com/speech/)
+* [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)
+* [Bing Speech API](https://azure.microsoft.com/ko-kr/services/cognitive-services/speech/)
+* [Speech recognition module for Python](https://github.com/Uberi/speech_recognition)
+
+* * *
+### 2.1. Google Speech API
+* * *
+가장 먼저 사용해 볼 API는 Google Speech API이다.
+
+사용 가이드로 [Docs](https://cloud.google.com/speech/docs/)를 보고 차근차근 따라하면 되지만, 영어 울렁증이 있는 분들은 [한글 블로그](http://jeongchul.tistory.com/544)를 참고하여 사용해 보면 된다.
+
+내가 사용하면서 겪은 몇몇 [Trouble Shooting](https://quddnr153.github.io/2017/09/30/google-speech-api.html)을 보는 것도 도움이 될 수도...
+
+
+사용 후기로는 인식률이 매우 좋다. 한글도 잘 인식된다 (매우 만족).
 
 # REFERENCE
 * * *

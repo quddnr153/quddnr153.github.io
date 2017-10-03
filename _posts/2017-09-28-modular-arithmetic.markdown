@@ -2,7 +2,7 @@
 layout: post
 title:  "Modular arithmetic"
 date:   2017-09-28 11:53:9 +0900
-categories: algorithm
+tags: algorithm
 ---
 ```
 (a + b) % M = ((a % M) + (b % M)) % M

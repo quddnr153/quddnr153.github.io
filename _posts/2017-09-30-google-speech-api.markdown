@@ -2,7 +2,7 @@
 layout: post
 title:  "Google Speech API for voice recognition"
 date:   2017-09-30 16:34:38 +0900
-categories: googlespeechapi googlecloudplatform voidrecognition
+tags: googlespeechapi googlecloudplatform voidrecognition
 ---
 # Create Google Cloud Platform project
 1. [Go to cloud.google.com](https://cloud.google.com/)
