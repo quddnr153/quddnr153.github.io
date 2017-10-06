@@ -67,8 +67,15 @@ Noting is impossible??? 아니 여기 존재한다, 불가능이다
 
 사용 후기로는 인식률이 매우 좋다. 한글도 잘 인식된다 (매우 만족).
 
+* * *
+### 2.2. Watson Speech to Text
+* * *
+Watson Speech to Text의 튜토리얼 가이드는 다음을 참고하자 - [see more](https://quddnr153.github.io/2017/10/05/watson-speech-to-text.html)
+
+
 # REFERENCE
 * * *
 - (1) http://ironman.wikia.com/wiki/J.A.R.V.I.S.
 - (2) [MARVEL WIKR](http://marvel.wikia.com/wiki/Just_A_Rather_Very_Intelligent_System_(Earth-199999))
 - (3) [How to do Speech Recognition with Deep Learning](https://medium.com/@ageitgey/machine-learning-is-fun-part-6-how-to-do-speech-recognition-with-deep-learning-28293c162f7a)
+
