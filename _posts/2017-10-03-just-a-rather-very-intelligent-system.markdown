@@ -72,6 +72,63 @@ Noting is impossible??? 아니 여기 존재한다, 불가능이다
 * * *
 Watson Speech to Text의 튜토리얼 가이드는 다음을 참고하자 - [see more](https://quddnr153.github.io/2017/10/05/watson-speech-to-text.html)
 
+* * *
+### 2.3. Bing Speech API
+* * *
+TODO: 생략할거같음...
+
+* * *
+### 2.4. Speech recognition module for Python
+* * *
+지금 정리할 SpeechRecognition은 정말정말 간단하게 사용해 볼 수 있다.
+
+[SpeechRecognition](https://github.com/Uberi/speech_recognition) 의 문서만 따라해도 문제없이 동작한다.
+
+[Demo video of SpeechRecognition](https://youtu.be/cWzqeXqvHA8)
+
+
+* * *
+## 중간 정리
+* * *
+앞서 Speech To Text에 대해 알아봤고, 대략 세가지 API를 사용해 봤다.
+
+Speech recognition을 개인이 만들 수 없는 시스템이기에 Open source의 힘을 빌렸다.
+
+다음으로는 speech를 변환한 text를 어떻게 사용할까? 라는 문제를 해결해야한다.
+
+나는 앞에 사용했던 API 중 가장 간단하게 적용한 SpeechRecognition module for Python 을 사용하기로 한다. (google 과 ibm 에서 물론 bing 에서 api token 또는 credentials 을 필요로하기에 불필요한 설정이 많이 필요했다.)
+
+
+
+그렇다면, 무슨 방법을 이용할까? 이다. 간단하게 아래와 같은 생각이 든다.
+
+1. 기존 API 모듈을 수정하여 사용 (하드코딩이 될듯...)
+2. Command를 따로 처리할 Applciation (ex, command app)를 만들어, 기존 API 에서는 recognize 한 text를 command app으로 전송하는 작업만 추가 (현재 가장 합리적인 선택이라 생각)
+
+위 생각으로 command application을 만드려 한다. 그렇다면 어떤식으로 만들어 볼까?
+
+1. text file을 읽어 사용 (변환한 text를 file로 생성하고 읽고 삭제하는 작업이... 귀찮아보인다.)
+2. text 를 url로 받아 사용 (REST API - 확장성을 고려한다면 좋은 방법이 아닐까?)
+
+이와 같이 2 - 2를 선택한다 (rationale은 괄호안에 작성함).
+
+* * *
+## 3. Execute Command
+* * *
+STT로 parsing된 text command를 수행하는 application이 필요하다.
+
+여러 방법이 있겠지만, 여기선 stt로 변환된 text를 java web application으로 request를 보내 처리하도록 한다.
+
+
+* * *
+## 4. Text To Speech (TTS), and 5. OUTPUT
+* * *
+JARVIS가 말할 수 있게 해주는 Text To Speech는 비교적 STT 보단 간단하다.
+
+여기선 input으로 "jarvis"가 들어가면, "Yes, master"라고 대답을 해주는 output의 역할까지 해준다. (아직, 명령을 수행하는 부분이 하드코딩 돼있기에, 추후에 이 부분도 지능을 붙이는걸로~)
+
+[기본 동작 동영상 링크](https://youtu.be/bThgvCe8z7I)
+
 
 # REFERENCE
 * * *
