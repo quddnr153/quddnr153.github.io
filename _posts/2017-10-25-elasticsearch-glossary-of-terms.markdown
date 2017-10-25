@@ -34,7 +34,7 @@ Document 는 field들 또는 key-value 쌍의 리스트 을 가진다.  값을 �
 ### Mapping
 Mapping 은 관계형 데이터베이스에서 schema definition 과 같다.  각 index 는 type을 정의하는 mapping을 가진다 (plus a number of index-wide settings). Mapping 은 명시적으로 정의할 수 있고, document 가 색인 (indexed) 될 때 자동적으로 생성될 수도 있다.
 
-Index
+### Index
 Index 는 관계형 데이터베이스의 테이블과 같다. It has a mapping which contains a type, which contains the fields in the index. Index 는 하나 이상의 primary shards 에 매핑 되고 0개 이상의 replica shards 를 가지는 logical namespace (논리적인 공간) 이다.
 
 ### Node	
