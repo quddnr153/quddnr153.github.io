@@ -80,14 +80,15 @@ We can learn more about Spring AOP proxying mechanisms from [the official docs](
 
 In section 3.3, we showed that Spring AOP is based on proxy patterns. Because of this, it needs to subclass the targeted Java class and apply cross-cutting concerns accordingly.
 
-But it comes with a limitation. We cannot apply cross-cutting concerns (or aspects) across classes that are “final” because they cannot be overridden and thus it would result in a runtime exception. 
+위에 대한 문제점으로, aspects 를 사용하면서 runtime exception 을 던지는 경우가 생긴다 (예를 들면, final classes 는 오버라이드 불가능, static final method).
+method execution joinpoints 만 지원한다.
 
-The same applies for static and final methods. Spring aspects cannot be applied to them because they cannot be overridden. Hence Spring AOP because of these limitations, only supports method execution join points.
+반면, AspectJ 는 runtime 전에 실제 code 에 cross-cutting concerns (횡단 관심사) 를 직접 weaving 한다. 따라서 Spring AOP 와는 다르게, 대상 객체를 subclass 화 할 필요 없고 다양한 joinpoints 를 지원한다.
 
-However, AspectJ weaves the cross-cutting concerns directly into the actual code before runtime. Unlike Spring AOP, it doesn’t require to subclass the targetted object and thus supports many others joinpoints as well. Following is the summary of supported joinpoints:
+아래는 두 framework 를 joinpoint 지원 여부를 비교한 표이다:
 
 |Joinpoint | Spring AOP Supported | AspectJ Supported|
-|----|----|----|
+|:----|:----|:----|
 |Method Call | No | Yes|
 |Method Execution | Yes | Yes|
 |Constructor Call | No | Yes|
@@ -99,9 +100,7 @@ However, AspectJ weaves the cross-cutting concerns directly into the actual code
 |Handler execution | No | Yes|
 |Advice execution | No | Yes|
 
-It’s also worth noting that in Spring AOP, aspects aren’t applied to the method called within the same class.
-
-That’s obviously because when we call a method within the same class, then we aren’t calling the method of the proxy that Spring AOP supplies. If we need this functionality, then we do have to define a separate method in different beans, or use AspectJ.
+Spring AOP 에서는 aspect 가 같은 클래스 내에서 호출 된 메소드에 적용되지 않는다. 당연히 같은 클래스 내에서 메소드 호출 할 때는 AOP 가 제공하는 프록시의 메소드를 호출하지 않기 때문이다. 이 기능을 필요로한다면 다른 빈에서 별도의 메소드를 정의하거나 AspectJ 를 사용해야 한다.
 
 ## 3.5. Simplicity
 
@@ -113,9 +112,9 @@ This is, of course, more complicated than the former – because it introduces A
 
 ## 3.6. Performance
 
-As far as performance is concerned, compile-time weaving is much faster than runtime weaving. Spring AOP is a proxy-based framework, so there is the creation of proxies at the time of application startup. Also, there are a few more method invocations per aspect, which affects the performance negatively.
+performance 측면에서, compil-time weaving 이 runtime weaving 보다 훨씬 빠르다. Spring AOP 는 application 실생 시간에 proxies 가 생성된다. 또한, aspect 마다 method invacations 이 발생한다. 이는 당연히 performace 에 안 좋은 영향을 끼친다.
 
-On the other hand, AspectJ weaves the aspects into the main code before the application executes and thus there’s no additional runtime overhead, unlike Spring AOP.
+반면, AspectJ 는 application 실행 전에 aspects 를  main code 에 weaving 하기 때문에 Spring AOP 와는 다르게 runtime overhead 가 없다.
 
 For these reasons, the [benchmarks](https://web.archive.org/web/20150520175004/https://docs.codehaus.org/display/AW/AOP+Benchmark) suggest that AspectJ is almost around 8 to 35 times faster than Spring AOP.
 
@@ -136,6 +135,8 @@ This quick table summarizes the key differences between Spring AOP and AspectJ:
 |Easy to learn and apply | Comparatively more complicated than Spring AOP|
 
 # 5. Choosing the Rigth Framework
+
+우선 알아야 할 문장 : "***there is no silver bullet***"
 
 If we analyze all the arguments made in this section, we’ll start to understand that it’s not at all that one framework is better than another.
 
