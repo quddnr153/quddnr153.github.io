@@ -19,7 +19,7 @@ tags: web spring aop aspecj java
 # 2. AOP Concepts
 * * *
 시작하기에 앞서, terms 와 core concepts 가 무엇인지 빠르게 review 해보자.
-- Aspect: Application의 여러 위치에 분산되 있고 실제 비지니스 로직이 아닌 (예를 들면, 트랜잭션 관리) 와 같은 standard code / feature 들
+- Aspect: Application의 여러 위치에 분산돼 있고 실제 비지니스 로직이 아닌 (예를 들면, 트랜잭션 관리) 와 같은 standard code / feature 들
 - Joinpoint: method execution, constructor call, 혹은 field assignment 와 같은 프로그램 실행 중의 특정 시점
 - Advice: 특정 jointpoint 에서 aspect 가 취해진 action
 - Pointcut: jointpoint 와 매치되는 정규 표현식. 매번 어느 jointpoint 와 pointcut 이 매치할 때, 해당 pointcut 과 관련된 advice 가 실행 된다.
@@ -63,15 +63,18 @@ aspects 는 targeted object 의 프록시를 사용하여 application 실행 중
 
 ## 3.3. Internal Structure and Application
 
-Spring AOP is a proxy-based AOP framework. This means that to implement aspects to the target objects, it’ll create proxies of that object. This is achieved using either of two ways:
+Spring AOP  proxy-based AOP framework 이다.
+즉, 대상 객체에 aspect를 구현하면 해당 객체의 프록시가 생성한다.
 
-1. JDK dynamic proxy – the preferred way for Spring AOP. Whenever the targeted object implements even one interface, then JDK dynamic proxy will be used
+이는 아래 두 가지 방법 중 하나를 사용하여 수행한다:
+
+1. JDK dynamic proxy: the preferred way for Spring AOP. Whenever the targeted object implements even one interface, then JDK dynamic proxy will be used
 2. CGLIB proxy – if the target object doesn’t implement an interface, then CGLIB proxy can be used
 We can learn more about Spring AOP proxying mechanisms from [the official docs](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop-proxying).
 
-AspectJ, on the other hand, doesn’t do anything at runtime as the classes are compiled directly with aspects.
+반면, AspectJ는 클래스가 aspect와 함께 직접 컴파일되기 때문에 런타임에 아무 것도하지 않는다.
 
-And so unlike Spring AOP, it doesn’t require any design patterns. To weave the aspects to the code, it introduces its compiler known as AspectJ compiler (ajc), through which we compile our program and then runs it by supplying a small (< 100K) runtime library.
+또한 Spring AOP 와는 다르게 design patterns 을 필요로 하지 않는다. AspectJ 컴파일러 (ajc)로 알려진 컴파일러를 통해 프로그램을 컴파일 한 다음 작은 (<100K) 런타임 라이브러리를 제공하여 이를 실행합니다.
 
 ## 3.4. Joinpoints
 
