@@ -47,5 +47,5 @@ BST 는 대개 하나의 용도인 최단 경로 문제를 푸는 것에 사용 
 
 [토마토](https://www.acmicpc.net/problem/7569)
 
-[Source code](://github.com/quddnr153/acmicpc/blob/master/bfs/Bfs7569.java)
+[Source code](https://github.com/quddnr153/acmicpc/blob/master/bfs/Bfs7569.java)
 
